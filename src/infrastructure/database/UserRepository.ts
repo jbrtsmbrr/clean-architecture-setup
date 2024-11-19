@@ -1,4 +1,4 @@
-import IUserRepository from "../../interfaces/repositories/IUserRepository";
+import IUserRepository from "../../adapters/interfaces/repositories/IUserRepository";
 
 // MySQL
 export class UserRepository implements IUserRepository {
