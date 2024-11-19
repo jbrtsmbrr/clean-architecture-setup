@@ -1,9 +1,9 @@
 import { CreateUserInput } from "../../adapters/input-bounds";
 import { ICreateUserUseCase } from "../../adapters/interfaces/use-cases/ICreateUserUseCase";
 import { UserOutput } from "../../adapters/output-bound";
-import { IEmailer } from "../../controllers/interfaces/libraries/IEmailer";
+import { IEmailer } from "../../adapters/interfaces/libraries/IEmailer";
 import User from "../../domain/entities/User";
-import IUserRepository from "../../interfaces/repositories/IUserRepository";
+import IUserRepository from "../../adapters/interfaces/repositories/IUserRepository";
 
 class CreateUserUseCase implements ICreateUserUseCase {
   private readonly repository: IUserRepository;
