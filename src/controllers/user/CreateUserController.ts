@@ -2,20 +2,24 @@
 //
 // Approach #1: Simple
 //
-import { CreateUserOutput } from "../../adapters/output-bound";
+
+import { CreateUserInput } from "../../application/ports/repositories/IUserRepository";
 import CreateUserUseCase from "../../application/use-cases/CreateUser";
-import { UserRepository } from "../../infrastructure/database/UserRepository";
-import { GoogleEmailer } from "../../infrastructure/libraries/Emailer";
+import { ICreateUserUseCase } from "../../application/use-cases/interfaces/ICreateUserUseCase";
+import { GoogleEmailer } from "../../infrastructure/adapters/libraries/Emailer";
+import { CreateUserOutput } from "../../infrastructure/adapters/output-bound";
+import { UserRepositoryAdapter } from "../../infrastructure/adapters/repositories/UserRepository";
+
 
 export async function onCreateUserController(): Promise<CreateUserOutput> {
 
-  const repository = new UserRepository();
+  const repository = new UserRepositoryAdapter();
   // const mongo_user_repo = new MongoRepository();
   const emailer = new GoogleEmailer();
 
   const createUserUseCase = new CreateUserUseCase(repository, emailer)
 
-  const data = await createUserUseCase.execute({ age: 11, name: 'John' });
+  const data = await createUserUseCase.execute({ age: 11, name: 'John', lastname: 'Doe', password: 'password' });
 
   return {
     data: data,
@@ -26,10 +30,7 @@ export async function onCreateUserController(): Promise<CreateUserOutput> {
 
 
 // Approach #2: Much better approach, 
-// especially if you want to test your controller in perspective of Infrastructure Layer.
-
-import { ICreateUserUseCase } from "../../adapters/interfaces/use-cases/ICreateUserUseCase";
-import { CreateUserInput } from "../../adapters/input-bounds";
+// especially if you want to test your controller in pe
 
 export class CreateUserController {
   private readonly usecase: ICreateUserUseCase;
