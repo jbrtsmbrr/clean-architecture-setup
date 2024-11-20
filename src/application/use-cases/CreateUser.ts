@@ -1,16 +1,16 @@
-import { CreateUserInput } from "../../adapters/input-bounds";
-import { ICreateUserUseCase } from "../../adapters/interfaces/use-cases/ICreateUserUseCase";
-import { UserOutput } from "../../adapters/output-bound";
-import { IEmailer } from "../../adapters/interfaces/libraries/IEmailer";
 import User from "../../domain/entities/User";
-import IUserRepository from "../../adapters/interfaces/repositories/IUserRepository";
+import { UserOutput } from "../../infrastructure/adapters/output-bound";
+import { IEmailerPort } from "../ports/libraries/IEmailer";
+import IUserRepositoryPort, { CreateUserInput } from "../ports/repositories/IUserRepository";
+import { ICreateUserUseCase } from "./interfaces/ICreateUserUseCase";
+
 
 class CreateUserUseCase implements ICreateUserUseCase {
-  private readonly repository: IUserRepository;
-  private readonly emailer: IEmailer;
+  private readonly repository: IUserRepositoryPort;
+  private readonly emailer: IEmailerPort;
   // private user: User;
 
-  constructor(repository: IUserRepository, emailer: IEmailer) {
+  constructor(repository: IUserRepositoryPort, emailer: IEmailerPort) {
     this.repository = repository;
     this.emailer = emailer;
   }
@@ -23,7 +23,13 @@ class CreateUserUseCase implements ICreateUserUseCase {
     // if (is_valid)
     //   return false;
 
-    this.repository.create(user)
+    this.repository.create({
+      name: 'John',
+      lastname: 'Doe',
+      password: 'password',
+      age: 21
+    })
+    
     this.emailer.send();
 
     return {
