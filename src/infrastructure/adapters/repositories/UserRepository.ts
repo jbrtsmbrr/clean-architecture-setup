@@ -1,6 +1,13 @@
 import IUserRepositoryPort from "../../../application/ports/repositories/IUserRepository"
 
 
+interface UserRawData {
+  firstName: string;
+  lastName: string;
+  age: number;
+  pass: string;
+}
+
 // MySQL
 export class UserRepositoryAdapter implements IUserRepositoryPort {
   create() {
