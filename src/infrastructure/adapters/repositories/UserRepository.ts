@@ -10,7 +10,17 @@ interface UserRawData {
 
 // MySQL
 export class UserRepositoryAdapter implements IUserRepositoryPort {
-  create() {
+  create(input: CreateUserInput) {
+    const db_data: UserRawData = {
+      firstName: input.name,
+      lastName: input.lastname,
+      age: input.age,
+      pass: input.password
+    }
+
+    // Insert using `db_data` variable
+    // mysql.query(`insert into ?...`, [db_data])
+    
     return Promise.resolve("$re1asdfh")
   }
 }
