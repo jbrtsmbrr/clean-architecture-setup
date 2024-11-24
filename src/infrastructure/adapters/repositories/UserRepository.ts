@@ -1,4 +1,4 @@
-import IUserRepositoryPort from "../../../application/ports/repositories/IUserRepository"
+import IUserRepositoryPort, { CreateUserInput } from "../../../application/ports/repositories/IUserRepository"
 
 
 interface UserRawData {
