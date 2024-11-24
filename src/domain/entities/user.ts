@@ -7,17 +7,43 @@ interface InitialUserParams {
 }
 
 class User {
-  private name: string;
-  private age: number;
+  private readonly id?: string;
+  private readonly name: string;
+  private readonly lastname: string;
+  private readonly password?: string;
+  private readonly age: number;
 
-  private constructor(name: string, age: number) {
-    this.age = age;
-    this.name = name
+  private constructor(args: InitialUserParams) {
+    this.id = args.id;
+    this.name = args.name;
+    this.lastname = args.lastname;
+    this.password = args.password;
+    this.age = args.age;
   }
 
-  public static create({ name, age }: { name: string, age: number }) {
+  public static create(params: InitialUserParams) {
 
-    return new User(name, age);
+    return new User(params);
+  }
+
+  public getId() {
+    return this.id;
+  }
+
+  public getName() {
+    return this.name;
+  }
+
+  public getLastName() {
+    return this.lastname;
+  }
+
+  public getPassword() {
+    return this.password;
+  }
+
+  public getAge() {
+    return this.age;
   }
 
   public validate() {
