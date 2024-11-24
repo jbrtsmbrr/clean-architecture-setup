@@ -1,3 +1,11 @@
+interface InitialUserParams {
+  id?: string;
+  name: string;
+  lastname: string
+  password?: string;
+  age: number;
+}
+
 class User {
   private name: string;
   private age: number;
