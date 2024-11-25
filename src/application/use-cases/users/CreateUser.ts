@@ -1,7 +1,7 @@
 import User from "../../../domain/entities/user";
 import { IEmailerPort } from "../../../interfaces/libraries/IEmailer";
 import IUserRepositoryPort from "../../../interfaces/repositories/IUserRepository";
-import { UserId } from "./interfaces/common";
+import { UseCaseResult, UserId } from "./interfaces/common";
 import { ICreateUserUseCase } from "./interfaces/ICreateUserUseCase";
 import { CreateUserInput } from "./interfaces/input";
 
@@ -16,7 +16,7 @@ class CreateUserUseCase implements ICreateUserUseCase {
     this.emailer = emailer;
   }
 
-  public async execute(user_input: CreateUserInput): Promise<UserId> {
+  public async execute(user_input: CreateUserInput): Promise<UseCaseResult<UserId | null>> {
 
     const user = User.create({
       name: user_input.name,
@@ -27,8 +27,8 @@ class CreateUserUseCase implements ICreateUserUseCase {
 
     const is_valid = user.validate();
 
-    // if (is_valid)
-    //   return false;
+    if (!is_valid)
+      return { result: null, errors: [{ message: "Unable to save data!" }] };
 
     const inserted_id = await this.repository.create({
       name: user.getName(),
@@ -39,7 +39,7 @@ class CreateUserUseCase implements ICreateUserUseCase {
 
     this.emailer.send();
 
-    return inserted_id;
+    return { result: inserted_id, errors: [] };
   }
 }
 
