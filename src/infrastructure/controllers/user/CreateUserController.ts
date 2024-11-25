@@ -22,12 +22,20 @@ export async function onCreateUserController(): Promise<CreateUserControllerOutp
   const createUserUseCase = new CreateUserUseCase(repository, emailer)
   const getUserUseCase = new GetUserUseCase(repository);
 
-  const inserted_id = await createUserUseCase.execute({ age: 11, name: 'John', lastname: 'Doe', password: 'password' });
+  const { errors, result: inserted_id } = await createUserUseCase.execute({ age: 11, name: 'John', lastname: 'Doe', password: 'password' });
+
+  if (!inserted_id)
+    return {
+      data: null,
+      errors: errors.map(e => e.message)
+    }
+
+
   const user = await getUserUseCase.execute(inserted_id)
 
   return {
     data: user,
-    errors: []
+    errors: errors.map(e => e.message)
   }
 }
 
@@ -46,18 +54,24 @@ export class CreateUserController implements ICreateUserController {
   }
 
   public async handle(user_input: CreateUserControllerInput): Promise<CreateUserControllerOutput> {
-    const inserted_id = await this.usecase.execute({
+    const { result: inserted_id, errors } = await this.usecase.execute({
       name: user_input.Name,
       lastname: user_input.Lastname,
       password: user_input.Password,
       age: user_input.Age
     });
 
+    if (!inserted_id)
+      return {
+        data: null,
+        errors: errors.map(e => e.message)
+      }
+
     const user = await this.getUserUseCase.execute(inserted_id)
 
     return {
       data: user,
-      errors: []
+      errors: errors.map(e => e.message)
     }
   }
 }
