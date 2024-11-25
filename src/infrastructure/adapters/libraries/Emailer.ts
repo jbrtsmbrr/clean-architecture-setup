@@ -1,4 +1,4 @@
-import { IEmailerPort } from "../../../application/ports/libraries/IEmailer";
+import { IEmailerPort } from "../../../interfaces/libraries/IEmailer";
 
 
 export class GoogleEmailer implements IEmailerPort {
