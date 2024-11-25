@@ -1,6 +1,6 @@
-import { UserId } from "./common";
+import { UseCaseResult, UserId } from "./common";
 import { CreateUserInput } from "./input";
 
 export interface ICreateUserUseCase {
-  execute(input: CreateUserInput): Promise<UserId>;
+  execute(input: CreateUserInput): Promise<UseCaseResult<UserId | null>>;
 }
