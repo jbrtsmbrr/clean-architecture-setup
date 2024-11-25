@@ -6,7 +6,7 @@ import { UserOutput } from "./interfaces/output";
 export class GetUserUseCase implements IGetUserUseCase {
   constructor(private readonly repository: IUserRepositoryPort) {}
 
-  public async execute(id: UserId): Promise<UserOutput> {
+  public async execute(id: UserId): Promise<UserOutput | null> {
       const user = await this.repository.retrieve(id)
       return user;
   }
