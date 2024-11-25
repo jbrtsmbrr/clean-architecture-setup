@@ -5,7 +5,7 @@ import { UserOutput } from "../../application/use-cases/users/interfaces/output"
 
 interface IUserRepositoryPort {
   create(user: CreateUserInput): Promise<UserId>
-  retrieve(id: UserId): Promise<UserOutput>
+  retrieve(id: UserId): Promise<UserOutput | null>
 }
 
 export default IUserRepositoryPort;
