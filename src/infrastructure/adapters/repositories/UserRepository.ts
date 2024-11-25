@@ -1,4 +1,7 @@
-import IUserRepositoryPort, { CreateUserInput } from "../../../application/ports/repositories/IUserRepository"
+import { UserId } from "../../../application/use-cases/users/interfaces/common";
+import { CreateUserInput } from "../../../application/use-cases/users/interfaces/input";
+import { UserOutput } from "../../../application/use-cases/users/interfaces/output";
+import IUserRepositoryPort from "../../../interfaces/repositories/IUserRepository";
 
 
 interface UserRawData {
@@ -20,15 +23,35 @@ export class UserRepositoryAdapter implements IUserRepositoryPort {
 
     // Insert using `db_data` variable
     // mysql.query(`insert into ?...`, [db_data])
-    
+
     return Promise.resolve("$re1asdfh")
+  }
+
+  retrieve(id: UserId): Promise<UserOutput> {
+    return Promise.resolve({
+      id: '12345',
+      name: 'John',
+      lastname: 'Doe',
+      age: 23
+    })
   }
 }
 
 // When using other data source
 export class MongoRepositoryAdapter implements IUserRepositoryPort {
+
   create() {
     // Mongo way of creating...
     return Promise.resolve("$re1asdfh")
+  }
+
+  retrieve(id: UserId): Promise<UserOutput> {
+    // Mongo way of getting user data
+    return Promise.resolve({
+      id: '12345',
+      name: 'Mongo',
+      lastname: 'DB',
+      age: 21
+    })
   }
 }
