@@ -27,7 +27,7 @@ export class UserRepositoryAdapter implements IUserRepositoryPort {
     return Promise.resolve("$re1asdfh")
   }
 
-  retrieve(id: UserId): Promise<UserOutput> {
+  retrieve(id: UserId): Promise<UserOutput | null> {
     return Promise.resolve({
       id: '12345',
       name: 'John',
@@ -45,7 +45,7 @@ export class MongoRepositoryAdapter implements IUserRepositoryPort {
     return Promise.resolve("$re1asdfh")
   }
 
-  retrieve(id: UserId): Promise<UserOutput> {
+  retrieve(id: UserId): Promise<UserOutput | null> {
     // Mongo way of getting user data
     return Promise.resolve({
       id: '12345',
