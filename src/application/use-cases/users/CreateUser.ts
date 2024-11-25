@@ -1,4 +1,4 @@
-import User from "../../../domain/entities/User";
+import User from "../../../domain/entities/user";
 import { IEmailerPort } from "../../../interfaces/libraries/IEmailer";
 import IUserRepositoryPort from "../../../interfaces/repositories/IUserRepository";
 import { UserId } from "./interfaces/common";
