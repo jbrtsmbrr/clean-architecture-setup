@@ -50,7 +50,7 @@ export class CreateUserController implements ICreateUserController {
       name: user_input.Name,
       lastname: user_input.Lastname,
       password: user_input.Password,
-      age: 21
+      age: user_input.Age
     });
 
     const user = await this.getUserUseCase.execute(inserted_id)
