@@ -12,7 +12,7 @@
 //......: indicate that something wrong happened when saving/retrieving data.
 
 import { UserId } from "../../use-cases/users/interfaces/common";
-import { CreateUserInput } from "../use-cases/users/input";
+import { CreateUserInput } from "../../use-cases/users/interfaces/input";
 import { UserOutput } from "../../use-cases/users/interfaces/output";
 
 interface IUserRepositoryPort {
