@@ -1,5 +1,5 @@
 import { UserId } from "./common";
-import { UseCaseResult } from "../common";
+import { UseCaseResult } from "../../../use-cases/common";
 import { CreateUserInput } from "./input";
 
 export interface ICreateUserUseCase {

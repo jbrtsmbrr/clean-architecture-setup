@@ -1,8 +1,7 @@
 import IUserRepositoryPort from "../../../application/ports/repositories/IUserRepository";
-import { UserId } from "../../../application/ports/use-cases/users/common";
-import { CreateUserInput } from "../../../application/ports/use-cases/users/input";
-import { UserOutput } from "../../../application/ports/use-cases/users/output";
-
+import { UserId } from "../../../application/use-cases/users/interfaces/common";
+import { CreateUserInput } from "../../../application/use-cases/users/interfaces/input";
+import { UserOutput } from "../../../application/use-cases/users/interfaces/output";
 
 
 interface UserRawData {

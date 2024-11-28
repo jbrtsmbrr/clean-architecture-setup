@@ -11,9 +11,9 @@
 // DONE : Implemented by returning `null`. This `null` value can use by use cases to 
 //......: indicate that something wrong happened when saving/retrieving data.
 
-import { UserId } from "../use-cases/users/common";
+import { UserId } from "../../use-cases/users/interfaces/common";
 import { CreateUserInput } from "../use-cases/users/input";
-import { UserOutput } from "../use-cases/users/output";
+import { UserOutput } from "../../use-cases/users/interfaces/output";
 
 interface IUserRepositoryPort {
   create(user: CreateUserInput): Promise<UserId | null>
