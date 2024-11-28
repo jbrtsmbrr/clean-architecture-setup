@@ -1,7 +1,7 @@
-import IUserRepositoryPort from "../../../interfaces/repositories/IUserRepository";
-import { UserId } from "./interfaces/common";
-import { IGetUserUseCase } from "./interfaces/IGetUserUseCase";
-import { UserOutput } from "./interfaces/output";
+import IUserRepositoryPort from "../../ports/repositories/IUserRepository";
+import { UserId } from "../../ports/use-cases/users/common";
+import { IGetUserUseCase } from "../../ports/use-cases/users/IGetUserUseCase";
+import { UserOutput } from "../../ports/use-cases/users/output";
 
 export class GetUserUseCase implements IGetUserUseCase {
   constructor(private readonly repository: IUserRepositoryPort) {}

@@ -1,9 +1,10 @@
 import User from "../../../domain/entities/user";
-import { IEmailerPort } from "../../../interfaces/libraries/IEmailer";
-import IUserRepositoryPort from "../../../interfaces/repositories/IUserRepository";
-import { UseCaseResult, UserId } from "./interfaces/common";
-import { ICreateUserUseCase } from "./interfaces/ICreateUserUseCase";
-import { CreateUserInput } from "./interfaces/input";
+import IUserRepositoryPort from "../../ports/repositories/IUserRepository";
+import { IEmailerPort } from "../../ports/services/IEmailer";
+import { UseCaseResult } from "../../ports/use-cases/common";
+import { UserId } from "../../ports/use-cases/users/common";
+import { ICreateUserUseCase } from "../../ports/use-cases/users/ICreateUserUseCase";
+import { CreateUserInput } from "../../ports/use-cases/users/input";
 
 
 class CreateUserUseCase implements ICreateUserUseCase {
