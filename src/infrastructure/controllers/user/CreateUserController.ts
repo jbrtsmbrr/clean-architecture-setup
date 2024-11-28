@@ -3,13 +3,14 @@
 // Approach #1: Simple
 //
 
+import { ICreateUserUseCase } from "../../../application/ports/use-cases/users/ICreateUserUseCase";
+import { IGetUserUseCase } from "../../../application/ports/use-cases/users/IGetUserUseCase";
 import CreateUserUseCase from "../../../application/use-cases/users/CreateUser";
 import { GetUserUseCase } from "../../../application/use-cases/users/GetUserUseCase";
-import { ICreateUserUseCase } from "../../../application/use-cases/users/interfaces/ICreateUserUseCase";
-import { IGetUserUseCase } from "../../../application/use-cases/users/interfaces/IGetUserUseCase";
 import { CreateUserControllerInput, CreateUserControllerOutput, ICreateUserController } from "../../../interfaces/controllers/ICreateUserController";
-import { GoogleEmailer } from "../../adapters/libraries/Emailer";
 import { UserRepositoryAdapter } from "../../adapters/repositories/UserRepository";
+import { GoogleEmailer } from "../../adapters/services/Emailer";
+
 
 
 
