@@ -1,8 +1,7 @@
-import { UserId } from "../../src/application/use-cases/users/interfaces/common";
-import { CreateUserInput } from "../../src/application/use-cases/users/interfaces/input";
-import { UserOutput } from "../../src/application/use-cases/users/interfaces/output";
-import IUserRepositoryPort from "../../src/interfaces/repositories/IUserRepository";
-
+import IUserRepositoryPort from "../../src/application/ports/repositories/IUserRepository";
+import { UserId } from "../../src/application/ports/use-cases/users/common";
+import { CreateUserInput } from "../../src/application/ports/use-cases/users/input";
+import { UserOutput } from "../../src/application/ports/use-cases/users/output";
 
 export class MockUserRepository implements IUserRepositoryPort {
   private current_id: number = 0;
