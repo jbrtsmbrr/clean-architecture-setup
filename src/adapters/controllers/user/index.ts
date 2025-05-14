@@ -1,8 +1,8 @@
 import CreateUserUseCase from "../../../application/use-cases/users/CreateUser";
 import { GetUserUseCase } from "../../../application/use-cases/users/GetUserUseCase";
 import { CreateUserControllerInput } from "../../../interfaces/controllers/ICreateUserController";
-import { GoogleEmailer } from "../../adapters/services/Emailer";
-import { UserRepositoryAdapter } from "../../adapters/repositories/UserRepository";
+import { GoogleEmailer } from "../../services/Emailer";
+import { UserRepositoryAdapter } from "../../repositories/UserRepository";
 import { CreateUserController } from "./CreateUserController";
 
 // Sample input, this maybe from web/mobile or from api requests. 
