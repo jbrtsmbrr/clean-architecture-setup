@@ -1,4 +1,4 @@
-import { IPushNotificationService } from "../../../application/ports/services/IPushNotificationService";
+import { IPushNotificationService } from "../../application/ports/services/IPushNotificationService";
 
 // Sample Implementation of pubsub/push notification service
 
