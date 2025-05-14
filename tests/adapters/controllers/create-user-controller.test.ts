@@ -1,7 +1,7 @@
 import CreateUserUseCase from "../../../src/application/use-cases/users/CreateUser";
 import { GetUserUseCase } from "../../../src/application/use-cases/users/GetUserUseCase";
-import { CreateUserController } from "../../../src/infrastructure/controllers/user/CreateUserController";
-import { CreateUserControllerInput } from "../../../src/interfaces/controllers/ICreateUserController";
+import { CreateUserController } from "../../../src/adapters/controllers/user/CreateUserController";
+import { CreateUserControllerInput } from "../../../src/adapters/controllers/user/ICreateUserController";
 import { MockEmailer } from "../../mocks/emailer.mock";
 import { MockUserRepository } from "../../mocks/user_repository.mock";
 

@@ -1,4 +1,4 @@
-import { UserOutput } from "../../application/use-cases/users/interfaces/output";
+import { UserOutput } from "../../../application/use-cases/users/interfaces/output";
 
 export interface CreateUserControllerOutput { data: UserOutput | null, errors: string[] }
 

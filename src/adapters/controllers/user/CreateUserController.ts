@@ -7,9 +7,9 @@ import CreateUserUseCase from "../../../application/use-cases/users/CreateUser";
 import { GetUserUseCase } from "../../../application/use-cases/users/GetUserUseCase";
 import { ICreateUserUseCase } from "../../../application/use-cases/users/interfaces/ICreateUserUseCase";
 import { IGetUserUseCase } from "../../../application/use-cases/users/interfaces/IGetUserUseCase";
-import { CreateUserControllerInput, CreateUserControllerOutput, ICreateUserController } from "../../../interfaces/controllers/ICreateUserController";
-import { UserRepositoryAdapter } from "../../adapters/repositories/UserRepository";
-import { GoogleEmailer } from "../../adapters/services/Emailer";
+import { CreateUserControllerInput, CreateUserControllerOutput, ICreateUserController } from "./ICreateUserController";
+import { UserRepositoryAdapter } from "../../repositories/UserRepository";
+import { GoogleEmailer } from "../../services/Emailer";
 
 
 
