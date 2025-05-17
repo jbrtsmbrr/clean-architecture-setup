@@ -1,4 +1,4 @@
-import IUserRepositoryPort from "../../application/ports/repositories/IUserRepository";
+import IUserRepositoryPort from "../../application/interfaces/persistence/IUserRepository";
 import { UserId } from "../../application/use-cases/users/interfaces/common";
 import { CreateUserInput } from "../../application/use-cases/users/interfaces/input";
 import { UserOutput } from "../../application/use-cases/users/interfaces/output";

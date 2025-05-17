@@ -1,4 +1,4 @@
-import { IEmailerPort } from "../../application/ports/services/IEmailer";
+import { IEmailerPort } from "../../application/interfaces/services/IEmailer";
 
 
 
